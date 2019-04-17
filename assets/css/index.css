@@ -22,8 +22,7 @@
   background: linear-gradient(22deg, black, #001737 30%, #041e4d 49%, #041e4d 51%, #001737 70%, black);
 }
 .space .bg-elements:after {
-  background: linear-gradient(174deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 71%, rgba(255, 255, 255, 0.1));
-  opacity: 0.6;
+  background: linear-gradient(174deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 71%, rgba(255, 255, 255, 0.15));
 }
 .space .bg-elements canvas {
   position: relative;
@@ -40,8 +39,8 @@
   left: 0;
   width: 100%;
   height: 50px;
-  border: solid transparent;
-  border-width: 15px 0 5px 0;
+  border: 1px solid transparent;
+  border-width: 15px 1px 5px 1px;
   border-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.5), transparent 98%);
   border-image-slice: 30% 1% 1% 60%;
 }
@@ -145,7 +144,7 @@
 }
 @keyframes menuOpen1 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
   }
   to {
     transform: rotate(15deg);
@@ -157,7 +156,7 @@
 }
 @keyframes menuOpen2 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
   }
   to {
     transform: rotate(30deg);
@@ -169,7 +168,7 @@
 }
 @keyframes menuOpen3 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
   }
   to {
     transform: rotate(45deg);
@@ -181,7 +180,7 @@
 }
 @keyframes menuOpen4 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
   }
   to {
     transform: rotate(60deg);
@@ -193,7 +192,7 @@
 }
 @keyframes menuOpen5 {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
   }
   to {
     transform: rotate(75deg);
