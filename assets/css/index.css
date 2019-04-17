@@ -141,18 +141,63 @@
 }
 .space .content menu .btn-wrap:nth-of-type(1) {
   transform: rotate(15deg);
+  animation: 1s ease 0s 1 menuOpen1;
+}
+@keyframes menuOpen1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
 }
 .space .content menu .btn-wrap:nth-of-type(2) {
   transform: rotate(30deg);
+  animation: 1s ease 0s 1 menuOpen2;
+}
+@keyframes menuOpen2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
 }
 .space .content menu .btn-wrap:nth-of-type(3) {
   transform: rotate(45deg);
+  animation: 1s ease 0s 1 menuOpen3;
+}
+@keyframes menuOpen3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
 }
 .space .content menu .btn-wrap:nth-of-type(4) {
   transform: rotate(60deg);
+  animation: 1s ease 0s 1 menuOpen4;
+}
+@keyframes menuOpen4 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(60deg);
+  }
 }
 .space .content menu .btn-wrap:nth-of-type(5) {
   transform: rotate(75deg);
+  animation: 1s ease 0s 1 menuOpen5;
+}
+@keyframes menuOpen5 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(75deg);
+  }
 }
 .space .content menu .btn-wrap:before {
   content: "";
