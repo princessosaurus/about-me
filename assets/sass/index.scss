@@ -1,0 +1,177 @@
+.space {
+    $light-blue: rgb(4, 30, 77);
+    $dark-blue: rgba(0,23,55,1);
+    margin: 0;
+    padding: 0;
+    .bg-elements{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        // width: 100vw;
+        // height: 100vh;
+        &:before, &:after{
+            content:'';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        &:before {
+            background: linear-gradient(22deg, rgba(0,0,0,1), $dark-blue 30%, $light-blue 49%, $light-blue 51%, $dark-blue 70%, rgba(0,0,0,1));
+        }
+        &:after {
+            background: linear-gradient(174deg, rgba(0,0,0,0.8), rgba(0,0,0,0) 22%, rgba(0,0,0,0) 71%, rgba(255,255,255,0.1));
+            opacity: 0.6;
+        }
+        canvas {
+            position: relative;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(30deg);
+            width: 125%;
+        }
+        .random-shape{
+            $trio-left: 90%;
+            $trio-height: 55%;
+            &:nth-of-type(1) {
+                position: absolute;
+                display: block;
+                top: 80%;
+                left: 0;
+                width: 100%;
+                height: 50px;
+                border: solid transparent;
+                border-width: 15px 0 5px 0;
+                border-image: radial-gradient(circle at 0 0, rgba(255,255,255,0.5), transparent 98%);
+                border-image-slice: 30% 1% 1% 60%;
+            }
+            &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4) {
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 25px;
+                opacity: 0.6;
+                background: linear-gradient(to right, transparent, $light-blue 48%, white, $light-blue 52%, transparent);
+                &:before{
+                    $size: 45px;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: $size;
+                    height: $size;
+                    top: calc(100% - .24 * #{$size});
+                    left: -10px;
+                    background: white;
+                    border-radius: 50%;
+                    background: radial-gradient( $light-blue 48%, white, $light-blue 52%, transparent );
+                }
+            }
+            &:nth-of-type(2) {
+                left: $trio-left;
+                height: $trio-height;
+                animation: 20s ease-in-out 0s infinite middledrop;
+            }
+            &:nth-of-type(3) {
+                left: $trio-left - 5%;
+                height: $trio-height - 20%;
+                animation: 15s ease-in-out 0s infinite leftdrop;
+            }
+            &:nth-of-type(4) {
+                left: $trio-left + 3%;
+                height: $trio-height - 15%;
+                animation: 16s ease-in-out 1s infinite rightdrop;
+            }
+            // &.drop-bubble:hover{
+            //     &:nth-of-type(2) {
+            //         animation: 8s ease-in-out 0s 3 middledrop;
+            //     }
+            //     &:nth-of-type(3) {
+            //         animation: 6s ease-in-out 0s 3 leftdrop;
+            //     }
+            //     &:nth-of-type(4) {
+            //         animation: 6.4s ease-in-out 1s 2 rightdrop;
+            //     }
+            // }
+            @keyframes middledrop {
+                0% { height: $trio-height; }
+                33% { height: $trio-height + 20%; }
+                66% { height: $trio-height - 10%; }
+                100% { height: $trio-height; }
+            }
+            @keyframes leftdrop {
+                0% { height: $trio-height - 20%; }
+                33% { height: $trio-height -5%; }
+                66% { height: $trio-height - 30%; }
+                100% { height: $trio-height - 20%; }
+            }
+            @keyframes rightdrop {
+                0% { height: $trio-height - 15%; }
+                33% { height: $trio-height - 5%; }
+                66% { height: $trio-height - 25%; }
+                100% { height: $trio-height - 15%; }
+            }
+        }
+    }
+    .content{
+        position: relative;
+        menu {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            .btn-wrap {
+                text-align: right;
+                width: 50%;
+                position: absolute;
+                top: -20px;
+                left: 0;
+                transform-origin: left center;
+                transition: width 0.25s;
+                @for $i from 1 through 5 {
+                    &:nth-of-type(#{$i}) {
+                        $rotate: 15deg * $i;
+                        transform: rotate(#{$rotate});
+                    }
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0.6;
+                    background: linear-gradient(to bottom, transparent, $light-blue 48%, white, $light-blue 52%, transparent);
+                }
+                button {
+                    display: inline;
+                    position: relative;
+                    border: 1px solid lighten($light-blue, 20%);
+                    background: $dark-blue;
+                    color: lighten($light-blue, 60%);
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
+                    letter-spacing: 0.08rem;
+                    padding: 8px 18px;
+                    border-radius: 7px;
+                    border-image: radial-gradient(transparent 8%, lighten($light-blue, 10%) 48%, white, lighten($light-blue, 10%) 52%, transparent 72%);
+                    border-image-slice: 48%;
+                    border-image-width: 21px;
+                    border-image-outset: 6px;
+                }
+                &:hover {
+                    width: 55%;
+                }
+            }
+        }
+    }
+    h2 {
+        $color: pink;
+        color: $color;
+    }
+}

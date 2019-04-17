@@ -1,0 +1,191 @@
+.space {
+  margin: 0;
+  padding: 0;
+}
+.space .bg-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.space .bg-elements:before, .space .bg-elements:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.space .bg-elements:before {
+  background: linear-gradient(22deg, black, #001737 30%, #041e4d 49%, #041e4d 51%, #001737 70%, black);
+}
+.space .bg-elements:after {
+  background: linear-gradient(174deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 71%, rgba(255, 255, 255, 0.1));
+  opacity: 0.6;
+}
+.space .bg-elements canvas {
+  position: relative;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(30deg);
+  width: 125%;
+}
+.space .bg-elements .random-shape:nth-of-type(1) {
+  position: absolute;
+  display: block;
+  top: 80%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  border: solid transparent;
+  border-width: 15px 0 5px 0;
+  border-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.5), transparent 98%);
+  border-image-slice: 30% 1% 1% 60%;
+}
+.space .bg-elements .random-shape:nth-of-type(2), .space .bg-elements .random-shape:nth-of-type(3), .space .bg-elements .random-shape:nth-of-type(4) {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 25px;
+  opacity: 0.6;
+  background: linear-gradient(to right, transparent, #041e4d 48%, white, #041e4d 52%, transparent);
+}
+.space .bg-elements .random-shape:nth-of-type(2):before, .space .bg-elements .random-shape:nth-of-type(3):before, .space .bg-elements .random-shape:nth-of-type(4):before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: calc(100% - .24 * 45px);
+  left: -10px;
+  background: white;
+  border-radius: 50%;
+  background: radial-gradient(#041e4d 48%, white, #041e4d 52%, transparent);
+}
+.space .bg-elements .random-shape:nth-of-type(2) {
+  left: 90%;
+  height: 55%;
+  animation: 20s ease-in-out 0s infinite middledrop;
+}
+.space .bg-elements .random-shape:nth-of-type(3) {
+  left: 85%;
+  height: 35%;
+  animation: 15s ease-in-out 0s infinite leftdrop;
+}
+.space .bg-elements .random-shape:nth-of-type(4) {
+  left: 93%;
+  height: 40%;
+  animation: 16s ease-in-out 1s infinite rightdrop;
+}
+@keyframes middledrop {
+  0% {
+    height: 55%;
+  }
+  33% {
+    height: 75%;
+  }
+  66% {
+    height: 45%;
+  }
+  100% {
+    height: 55%;
+  }
+}
+@keyframes leftdrop {
+  0% {
+    height: 35%;
+  }
+  33% {
+    height: 55% -5%;
+  }
+  66% {
+    height: 25%;
+  }
+  100% {
+    height: 35%;
+  }
+}
+@keyframes rightdrop {
+  0% {
+    height: 40%;
+  }
+  33% {
+    height: 50%;
+  }
+  66% {
+    height: 30%;
+  }
+  100% {
+    height: 40%;
+  }
+}
+.space .content {
+  position: relative;
+}
+.space .content menu {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+.space .content menu .btn-wrap {
+  text-align: right;
+  width: 50%;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  transform-origin: left center;
+  transition: width 0.25s;
+}
+.space .content menu .btn-wrap:nth-of-type(1) {
+  transform: rotate(15deg);
+}
+.space .content menu .btn-wrap:nth-of-type(2) {
+  transform: rotate(30deg);
+}
+.space .content menu .btn-wrap:nth-of-type(3) {
+  transform: rotate(45deg);
+}
+.space .content menu .btn-wrap:nth-of-type(4) {
+  transform: rotate(60deg);
+}
+.space .content menu .btn-wrap:nth-of-type(5) {
+  transform: rotate(75deg);
+}
+.space .content menu .btn-wrap:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  background: linear-gradient(to bottom, transparent, #041e4d 48%, white, #041e4d 52%, transparent);
+}
+.space .content menu .btn-wrap button {
+  display: inline;
+  position: relative;
+  border: 1px solid #0944ae;
+  background: #001737;
+  color: #8ab2f9;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.08rem;
+  padding: 8px 18px;
+  border-radius: 7px;
+  border-image: radial-gradient(transparent 8%, #07317d 48%, white, #07317d 52%, transparent 72%);
+  border-image-slice: 48%;
+  border-image-width: 21px;
+  border-image-outset: 6px;
+}
+.space .content menu .btn-wrap:hover {
+  width: 55%;
+}
+.space h2 {
+  color: pink;
+}
+
+/*# sourceMappingURL=index.css.map */
