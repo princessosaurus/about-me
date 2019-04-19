@@ -7,6 +7,27 @@
     $trio-left: 90%;
     $trio-height: 55%;
     $menu-overhang: 100px;
+    $button-font-size: 1.1rem;
+    @mixin button {
+        padding: 8px 18px;
+        background: $dark-blue;
+        color: $font-blue;
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: $button-font-size;
+        letter-spacing: 0.1rem;
+        border: 1px solid lighten($light-blue, 20%);
+        border-radius: 7px;
+        border-image: radial-gradient(rgba($light-blue, 0) 8%, $light-blue-glow 48%, white, $light-blue-glow 52%, rgba($light-blue, 0) 72%);
+        border-image-slice: 48%;
+        border-image-width: 21px;
+        border-image-outset: 6px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     margin: 0;
     padding: 0;
     .bg-elements{
@@ -93,7 +114,6 @@
     .content{
         position: relative;
         menu {
-            $font-size: 1.1rem;
             position: relative;
             padding: 0;
             margin: 0;
@@ -103,7 +123,7 @@
                 width: calc(40% + #{$menu-overhang});
                 max-width: 80vh;
                 position: absolute;
-                top: $font-size / -2;
+                top: $button-font-size / -2;
                 left: -$menu-overhang;
                 transform-origin: $menu-overhang center;
                 transition: width 0.25s, transform 0.75s ease-in-out;
@@ -134,22 +154,7 @@
                 a {
                     display: inline;
                     position: relative;
-                    padding: 8px 18px;
-                    background: $dark-blue;
-                    color: $font-blue;
-                    font-family: 'Orbitron', sans-serif;
-                    text-transform: uppercase;
-                    font-size: $font-size;
-                    letter-spacing: 0.1rem;
-                    border: 1px solid lighten($light-blue, 20%);
-                    border-radius: 7px;
-                    border-image: radial-gradient(rgba($light-blue, 0) 8%, $light-blue-glow 48%, white, $light-blue-glow 52%, rgba($light-blue, 0) 72%);
-                    border-image-slice: 48%;
-                    border-image-width: 21px;
-                    border-image-outset: 6px;
-                    &:hover {
-                        cursor: pointer;
-                    }
+                    @include button;
                 }
                 &:hover {
                     width: calc(42% + #{$menu-overhang});
@@ -198,50 +203,59 @@
                 100% { height: $trio-height - 15%; }
             }
         }
-        .content menu {
-            .btn-wrap {
-                @for $i from 1 through 5 {
-                    $rotate: 15deg * $i;
-                    $start-rotate: -180deg + $rotate;
-                    &:nth-of-type(#{$i}) {
-                        transform: rotate(#{$rotate});
-                        animation: 1s ease 0s 1 menuOpen#{$i};
-                    }
-                    @keyframes menuOpen#{$i} {
-                        from { transform: rotate(#{$start-rotate}); }
-                        to { transform: rotate(#{$rotate}); }
+        .content {
+            menu {
+                .btn-wrap {
+                    @for $i from 1 through 5 {
+                        $rotate: 15deg * $i;
+                        $start-rotate: -180deg + $rotate;
+                        &:nth-of-type(#{$i}) {
+                            transform: rotate(#{$rotate});
+                            animation: 1s ease 0s 1 menuOpen#{$i};
+                        }
+                        @keyframes menuOpen#{$i} {
+                            from { transform: rotate(#{$start-rotate}); }
+                            to { transform: rotate(#{$rotate}); }
+                        }
                     }
                 }
+                // rotating circles
+                &:before, &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    border-radius: 50%;
+                    border: 1px solid lighten($light-blue, 60%);
+                    border-top-color: rgba($light-blue, 0);
+                    border-left-color: rgba($light-blue, 0);
+                    transform: translate(-50%,-50%);
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+                &:before {
+                    padding: 105% 0 0 0;
+                    width: 105%;
+                    border-width: 15px;
+                    animation: 30s linear 0s infinite menuDetail;
+                }
+                &:after {
+                    padding: 115% 0 0 0;
+                    width: 115%;
+                    border-width: 35px;
+                    border-right-color: rgba($light-blue, 0);
+                    animation: 20s linear 0s infinite reverse menuDetail;
+                }
+                @keyframes menuDetail {
+                    from { transform: translate(-50%,-50%) rotate(0deg); }
+                    to { transform: translate(-50%,-50%) rotate(360deg); }
+                }
             }
-            // rotating circles
-            &:before, &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                border-radius: 50%;
-                border: 1px solid lighten($light-blue, 60%);
-                border-top-color: rgba($light-blue, 0);
-                border-left-color: rgba($light-blue, 0);
-                transform: translate(-50%,-50%);
-                opacity: 0.5;
-                pointer-events: none;
-            }
-            &:before {
-                padding: 105% 0 0 0;
-                width: 105%;
-                border-width: 15px;
-                animation: 30s linear 0s infinite menuDetail;
-            }
-            &:after {
-                padding: 115% 0 0 0;
-                width: 115%;
-                border-width: 35px;
-                border-right-color: rgba($light-blue, 0);
-                animation: 20s linear 0s infinite reverse menuDetail;
-            }
-            @keyframes menuDetail {
-                from { transform: translate(-50%,-50%) rotate(0deg); }
-                to { transform: translate(-50%,-50%) rotate(360deg); }
+            #space-portal {
+                position: fixed;
+                bottom: 6%;
+                left: 50%;
+                transform: translateX(-50%);
+                @include button;
             }
         }
     }
