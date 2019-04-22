@@ -361,11 +361,11 @@
                     color: $font-blue-glow;
                     font-size: 1.8rem;
                     text-transform: uppercase;
-                    margin: 0 0 25px;
+                    margin: 0 0 10px;
                 }
                 h3 {
                     font-size: 1.3rem;
-                    margin: 0 0 20px;
+                    margin: 20px 0;
                 }
                 h4 {
                     font-size: 1.2rem;
@@ -397,6 +397,24 @@
             .open + main {
                 opacity: 0.15;
             }
+        }
+    }
+    @media screen and (min-width: 600px) {
+        &.content-page .content main .top-level {
+            .mid-name, .low-title {
+                text-align: left;
+            }
+            .mid-location {
+                text-align: center;
+            }
+            .mid-date, .low-date {
+                text-align: right;
+            }
+        }
+    }
+    @media screen and (max-width: 599px) {
+        &.content-page .content main .top-level .header {
+            display: block;
         }
     }
 }
