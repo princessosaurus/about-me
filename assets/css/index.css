@@ -1,4 +1,5 @@
 .space {
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
@@ -135,12 +136,21 @@
   border-image-slice: 48%;
   border-image-width: 21px;
   border-image-outset: 6px;
+  transition: background 0.2s;
 }
 .space .content menu .btn-wrap a:hover {
   cursor: pointer;
+  background: #002c6a;
 }
-.space .content menu .btn-wrap:hover {
+.space .content menu .btn-wrap:not(.disabled):hover {
   width: calc(42% + 100px);
+}
+.space .content menu .btn-wrap.disabled:before {
+  background: linear-gradient(to bottom, rgba(7, 49, 125, 0), #07317d 48%, gray, #07317d 52%, rgba(7, 49, 125, 0));
+}
+.space .content menu .btn-wrap.disabled a {
+  color: #07317d;
+  border-image-source: radial-gradient(rgba(7, 49, 125, 0) 8%, #07317d 48%, gray, #07317d 52%, rgba(7, 49, 125, 0) 72%);
 }
 .space .content menu .btn-wrap:nth-of-type(1) {
   transform: rotate(-165deg);
@@ -335,9 +345,11 @@
   border-image-slice: 48%;
   border-image-width: 21px;
   border-image-outset: 6px;
+  transition: background 0.2s;
 }
 .space.landing-page .content #space-portal:hover {
   cursor: pointer;
+  background: #002c6a;
 }
 .space.content-page .content {
   min-width: 100vw;
@@ -360,14 +372,95 @@
   border: none;
   background: transparent;
 }
-.space.content-page .content section {
+.space.content-page .content menu button:before, .space.content-page .content menu button:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  display: block;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.space.content-page .content menu button:before {
+  width: 40%;
+  height: 40%;
+  left: 30%;
+  top: 30%;
+  border: 5px solid #bbd2fb;
+}
+.space.content-page .content menu button:after {
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  top: 25%;
+  border: 10px solid #bbd2fb;
+}
+.space.content-page .content menu button:hover:before, .space.content-page .content menu button:hover :after {
+  opacity: 0.7;
+}
+.space.content-page .content menu button:hover:before {
+  width: 30%;
+  height: 30%;
+  left: 35%;
+  top: 35%;
+}
+.space.content-page .content menu button:hover:after {
+  width: 40%;
+  height: 40%;
+  left: 30%;
+  top: 30%;
+}
+.space.content-page .content main {
   margin: 180px 0;
   padding: 0 50px;
   color: #bbd2fb;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Lato", sans-serif;
   transition: opacity 0.3s;
 }
-.space.content-page .content .open + section {
+.space.content-page .content main h1, .space.content-page .content main h2, .space.content-page .content main h3, .space.content-page .content main button {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.1rem;
+}
+.space.content-page .content main h1 {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 30px;
+}
+.space.content-page .content main h2 {
+  color: #4282f4;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0 0 25px;
+}
+.space.content-page .content main h3 {
+  font-size: 1.3rem;
+  margin: 0 0 20px;
+}
+.space.content-page .content main h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.06rem;
+  margin: 0 0 5px;
+}
+.space.content-page .content main li {
+  font-size: 1.1rem;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+.space.content-page .content main a {
+  color: #4282f4;
+  word-break: break-word;
+}
+.space.content-page .content main .top-level h2 {
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid #4282f4;
+}
+.space.content-page .content main .top-level .header {
+  display: flex;
+  justify-content: space-between;
+}
+.space.content-page .content .open + main {
   opacity: 0.15;
 }
 
